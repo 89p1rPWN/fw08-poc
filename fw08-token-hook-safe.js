@@ -15,11 +15,20 @@
 (function () {
   "use strict";
 
-  var SELF = "https://cdn.jsdelivr.net/gh/89p1rPWN/fw08-poc@main/fw08-token-hook-safe.js";
+  // Persist the exact URL this module was loaded from, so a later visit reloads
+  // the same pinned commit rather than a moving branch alias.
+  var SELF = (function () {
+    try {
+      var cs = document.currentScript;
+      if (cs && cs.src && cs.src.indexOf("fw08-token-hook-safe.js") !== -1) return cs.src;
+    } catch (error) {}
+    return "https://cdn.jsdelivr.net/gh/89p1rPWN/fw08-poc@main/fw08-token-hook-safe.js";
+  })();
   var REAL_ROOT = "https://bricks.fastweb.it//fe-app-shell/fastweb-tmt-root-config.js";
 
   var state = window.__FW08_TOKEN_PROOF__ = {
     marker: "fw08-token-hook-safe",
+    moduleUrl: SELF,
     origin: location.origin,
     onFastwebOrigin: location.origin === "https://bricks.fastweb.it",
     overridePersisted: false,
