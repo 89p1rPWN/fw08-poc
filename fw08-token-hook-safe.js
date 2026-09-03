@@ -9,7 +9,8 @@
  * four harmless facts: that one arrived, its length, how many dot-separated
  * segments it has, and a six-byte SHA-256 prefix computed locally.
  *
- * There is no network call of any kind in this file.
+ * The only network activity is two System.import() calls for Fastweb's own
+ * modules on bricks.fastweb.it. It contacts no attacker-controlled server.
  */
 (function () {
   "use strict";
@@ -74,8 +75,9 @@
           : "not yet - sign in to complete this line"),
       "",
       "-----------------------------------------",
-      "No token value is shown, stored or sent. This file makes no",
-      "network request. Full object: window.__FW08_TOKEN_PROOF__"
+      "No token value is shown, stored or sent anywhere. The only things",
+      "this file loads are Fastweb's own two modules, from bricks.fastweb.it.",
+      "It contacts no attacker server. Full object: window.__FW08_TOKEN_PROOF__"
     ].join("\n");
   }
 
